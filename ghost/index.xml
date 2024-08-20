@@ -1,0 +1,257 @@
+<Module>
+<ModulePrefs title="Home"/>
+<Content type="html">
+<![CDATA[ 
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas - Dashboard</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
+        /* GOBAL */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: lexend;
+    color: #fff;
+}
+
+body {
+    background-color: #000;
+    width: 100%;
+    height: 100%;
+}
+
+/* NAVAGATION */
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 10vh;
+    padding: 0 20px;
+    background-color: transparent;
+    backdrop-filter: blur(10px);
+    z-index: 6;
+    position: fixed;
+    top: 0;
+    left: 0;
+    /* background-color: red; */
+}
+
+.web-name a:link, .web-name a:active, .web-name a:visited {
+    text-decoration: none;
+    color: #fff;
+}
+
+nav ul {
+    list-style: none;
+}
+
+nav ul li {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+nav ul li:first-child {
+    margin-left: 0;
+}
+
+/* NAVAGATION LINK */
+
+.navlink:link, .navlink:active, .navlink:visited {
+    text-decoration: none;
+    transition: all .2s ease-in;
+    color: #fff;
+}
+
+.navlink:hover {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* NAVAGATION HEIGHT */
+
+.navheight {
+    height: 10vh;
+    width: 100%;
+}
+
+/* POPULAR */
+
+.pop-header {
+    width: 95%;
+    font-size: 32px;
+    padding-left: 30px;
+    padding-bottom: 10px;
+    margin: 0 auto;
+    border-bottom: 2px solid #fff;
+    text-align: left;
+}
+
+.popular {
+    width: 100%;
+    padding: 50px;
+}
+
+.popular-con {
+    list-style: none;
+    width: 85%;
+    margin: 25px auto;
+    text-align: left;
+    /* background-color: red; */
+    /* margin-bottom: 1000px; */
+}
+
+.popular-con li {
+    display: inline-block;
+}
+
+.game {
+    display: inline-flex;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    border-radius: 25px;
+    height: 200px;
+    width: 200px;
+    background-size: cover;
+}
+
+.game p {
+    text-decoration: none;
+    margin-bottom: 10px;
+    width: 200px;
+    font-size: 17px;
+    /* backdrop-filter: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)); */
+}
+
+.game-item button {
+    height: 200px;
+    width: 200px;
+    background-color: transparent;
+    border: none;
+    margin: 10px;
+}
+
+/* Game Pic Backgrounds */
+
+.motoxm {
+    background-image: linear-gradient(180deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8)),url(https://raw.githubusercontent.com/Vadar-X/ghost-network/main/ghost/img/moto-x3m.jpg);
+}
+
+.retro {
+    background-image: linear-gradient(180deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8)),url(https://raw.githubusercontent.com/Vadar-X/ghost-network/main/ghost/img/retro-bowl.jpg);
+}
+
+.slope {
+    background-image: linear-gradient(180deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8)),url(https://raw.githubusercontent.com/Vadar-X/ghost-network/main/ghost/img/slope.jpg);
+}
+
+
+
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <h1 class="web-name"><a href="/index.html">Ghost</a></h1>
+        <nav>
+            <ul>
+                <li>
+                    <a class="navlink" href="#">Home</a>
+                </li>
+                <li>
+                    <a class="navlink" href="#">Games</a>
+                </li>
+                <li>
+                    <a class="navlink" href="#">Movies</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    
+    <div class="navheight"></div>
+    
+    <div class="popular">
+        <h2 class="pop-header">Popular</h2>
+        
+        <ul class="popular-con">
+                <li class="game-item"><button class="open-motoxm"><div class="game motoxm"><p>Moto X3M</p></div></button></li>
+                <li class="game-item"><button class="open-slope"><div class="game slope"><p>Slope</p></div></button></li>
+        </ul>
+    </div>
+</body>
+</html>
+<script>
+var urlObj = new window.URL(window.location.href);
+//Game URLs
+var motoxmUrl = "https://images-opensocial.googleusercontent.com/gadgets/ifr?container=ig&url=" + "https://cdn.jsdelivr.net/gh/bobydob/JSEngine@99563e3bf6eb25323e3bd5af20dcd9a261b97991/build/m3m/m3m.xml"
+var slopeUrl = src= "https://images-opensocial.googleusercontent.com/gadgets/ifr?url=https://cdn.jsdelivr.net/gh/sk1bx/WebStarterkit@ebc61d8a952e7630c8c5ca3410335bf5d5f04711/src/sp.xml&container=ig"
+var win;
+
+document.querySelector('.open-motoxm').onclick = function() {
+        if (win) {
+            win.focus();
+        } else {
+            win = window.open();
+            win.document.body.style.margin = '0';
+            win.document.body.style.height = '100%';
+            var iframe = win.document.createElement('iframe');
+            iframe.style.border = 'none';
+            iframe.style.width = '865px';
+            iframe.style.height = '100vh';
+            iframe.style.margin = '0';
+            iframe.src = motoxmUrl;
+            win.document.body.appendChild(iframe);
+            
+
+            var interval = setInterval(function() {
+                if (win.closed) {
+                    clearInterval(interval);
+                    win = undefined;
+
+                }
+            }, 500);
+
+
+        }
+    };
+
+
+document.querySelector('.open-slope').onclick = function() {
+        if (win) {
+            win.focus();
+        } else {
+            win = window.open();
+            win.document.body.style.margin = '0';
+            win.document.body.style.height = '100%';
+            var iframe = win.document.createElement('iframe');
+            iframe.style.border = 'none';
+            iframe.style.width = '100vw';
+            iframe.style.height = '100vh';
+            iframe.style.margin = '0';
+            iframe.src = slopeUrl;
+            win.document.body.appendChild(iframe);
+            
+
+            var interval = setInterval(function() {
+                if (win.closed) {
+                    clearInterval(interval);
+                    win = undefined;
+
+                }
+            }, 500);
+
+
+        }
+    };
+</script>
+
+ ]]>
+</Content>
+</Module>
